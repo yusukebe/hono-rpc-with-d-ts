@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "types",
+    "emitDeclarationOnly": true,
+    "declaration": true,
+  },
+  "exclude": [
+    "client",
+    "dist",
+    "types"
+  ]
+}
