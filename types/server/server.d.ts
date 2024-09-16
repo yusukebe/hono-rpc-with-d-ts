@@ -1,11 +1,17 @@
 import { Hono } from 'hono';
 declare const routes: Hono<import("hono/types").BlankEnv, {
-    "/": {
+    "/posts/:postId/comments/:commentId": {
         $get: {
-            input: {};
+            input: {
+                param: {
+                    postId: string;
+                } & {
+                    commentId: string;
+                };
+            };
             output: {
-                ok: boolean;
-                message: string;
+                id: number;
+                title: string;
             };
             outputFormat: "json";
             status: import("hono/utils/http-status").StatusCode;

@@ -10,10 +10,10 @@ const schema = z.object({
 })
 
 const routes = app
-  .get('/', (c) => {
+  .get('/posts/:postId/comments/:commentId', (c) => {
     return c.json({
-      ok: true,
-      message: 'hello'
+      id: 123,
+      title: 'foo'
     })
   })
   .post('/posts', zValidator('json', schema), (c) => {

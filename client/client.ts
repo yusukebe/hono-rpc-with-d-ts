@@ -1,8 +1,4 @@
-import app from '../types/server'
+import { client as clientType } from '../types/client-types/client'
 import { hc } from 'hono/client'
 
-const client = hc<typeof app>('http://localhost:3000')
-
-const res = await client.index.$get()
-const data = await res.json()
-console.log(data)
+const client = hc('http://localhost:3000') as unknown as typeof clientType
