@@ -1,4 +1,12 @@
-import { client as clientType } from '../types/client-types/client'
-import { hc } from 'hono/client'
+import { hcWithType } from '../types/client'
 
-const client = hc('http://localhost:3000') as unknown as typeof clientType
+const client = hcWithType('http://localhost:3000')
+
+const res = await client.posts[':postId'].comments[':commentId'].$get({
+  param: {
+    postId: '123',
+    commentId: '123'
+  }
+})
+
+const data = await res.json()

@@ -1,4 +1,4 @@
-export declare const client: {
+declare const client: {
     posts: {
         ":postId": {
             comments: {
@@ -50,3 +50,6 @@ export declare const client: {
         };
     }>;
 };
+export type Client = typeof client;
+export declare const hcWithType: (baseUrl: string, options?: import("hono").ClientRequestOptions | undefined) => Client;
+export {};
